@@ -10,170 +10,176 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class RestClient {
-	
-	//1. to create different request specs --- RequestSpecification
-	//2 . to create get and post request --- Response
-	
-	
-	//Encapsulation
-	private static final String BASE_URI = "https//gorest.co.in";
+	private static final String BASE_URI = "https://gorest.co.in";
 	private static final String BEARER_TOKEN = "53762d62478eb441d3c28098ca0e436747a19f9652dabc4fa32a3b2c7c85752d";
-	
-	private static RequestSpecBuilder specbuilder;
-	
-	static {
-		specbuilder = new RequestSpecBuilder();
+
+	private static RequestSpecBuilder specBuilder;
+
+	public RestClient()
+	{
+		specBuilder = new RequestSpecBuilder();
 	}
-	
-	private void addAuthorizationHeader() {
-		specbuilder.addHeader("Authorization", "Bearer "+BEARER_TOKEN);
+
+	public void addAuthorizationHeader() {
+		specBuilder.addHeader("Authorization", "Bearer " + BEARER_TOKEN);
 	}
-	
-	private void setContentType(String contentType) {
-		//json, xml , mutipart, text   //JSON,json, Json
+
+	private void setRequestContentType(String contentType) { // json , JSON, Json
 		switch (contentType.toLowerCase()) {
 		case "json":
-			specbuilder.setContentType(ContentType.JSON);
-			break;
-		case "xml":
-			specbuilder.setContentType(ContentType.XML);
+			specBuilder.setContentType(ContentType.JSON);
 			break;
 		case "text":
-			specbuilder.setContentType(ContentType.TEXT);
+			specBuilder.setContentType(ContentType.TEXT);
+			break;
+		case "xml":
+			specBuilder.setContentType(ContentType.XML);
 			break;
 		case "multipart":
-			specbuilder.setContentType(ContentType.MULTIPART);
+			specBuilder.setContentType(ContentType.MULTIPART);
 			break;
 		default:
-			System.out.println("please pass the correct content type"+contentType);
+			System.out.println("please pass the right content type");
 			throw new FrameworkException("INVALIDCONTENTTYPE");
 		}
 	}
-	
-	//spec ---- base uri + authorization header 
-	private RequestSpecification createRequestSpecification() {
-		specbuilder.setBaseUri(BASE_URI);
+
+	private RequestSpecification createRequestSpec() {
+		specBuilder.setBaseUri(BASE_URI);
 		addAuthorizationHeader();
-	 return	specbuilder.build();	
+		return specBuilder.build();
 	}
-	
-	//spec --- base uri + authorization header + multiple headers
-	private RequestSpecification createRequestSpecification(Map<String, String> headersMap) {
-		specbuilder.setBaseUri(BASE_URI);
-		if(headersMap!=null) {
-			specbuilder.addHeaders(headersMap);
-		}
+
+	private RequestSpecification createRequestSpec(Map<String, String> headersMap) {
+		specBuilder.setBaseUri(BASE_URI);
 		addAuthorizationHeader();
-		return	specbuilder.build();	
+		if (headersMap != null) {
+			specBuilder.addHeaders(headersMap);
+		}
+		return specBuilder.build();
 	}
-	
-	//spec --- base uri + authorization header + multiple headers + multiple queryparams
-	private RequestSpecification createRequestSpecification(Map<String, String> headersMap, Map<String, String> queryParams) {
-		specbuilder.setBaseUri(BASE_URI);
-		if(headersMap!=null) {
-			specbuilder.addHeaders(headersMap);
-		}
-		if(queryParams!=null) {
-			specbuilder.addQueryParams(queryParams);
-		}
+
+	private RequestSpecification createRequestSpec(Map<String, String> headersMap, Map<String, String> queryParams) {
+		specBuilder.setBaseUri(BASE_URI);
 		addAuthorizationHeader();
-		return	specbuilder.build();	
+		if (headersMap != null) {
+			specBuilder.addHeaders(headersMap);
+		}
+		if (queryParams != null) {
+			specBuilder.addQueryParams(queryParams);
+		}
+		return specBuilder.build();
 	}
-	
-	//post call spec
-	//- body - serialization
-	//-content type = json/xml/mutipart/text
-	//query param - NOT NEEDED
-	
-	private RequestSpecification createRequestSpecification(Object requestBody, String contentType) {
-		specbuilder.setBaseUri(BASE_URI);
-		//specbuilder.setContentType(contentType); -- wrong approach
-		setContentType(contentType);
+
+//request spec for post calls
+//passing the body and we need to tell the content type its, json or html or xml
+	private RequestSpecification createRequestSpec(Object requestBody, String contentType) {
+		specBuilder.setBaseUri(BASE_URI);
 		addAuthorizationHeader();
-		if(requestBody!=null) {
-			specbuilder.setBody(requestBody);
+		setRequestContentType(contentType);
+		if (requestBody != null) {
+			specBuilder.setBody(requestBody);
 		}
-		return	specbuilder.build();		
+		return specBuilder.build();
 	}
-	
-	private RequestSpecification createRequestSpecification(Map<String, String> headersMap, Object requestBody, String contentType) {
-		specbuilder.setBaseUri(BASE_URI);
-		//specbuilder.setContentType(contentType); -- wrong approach
-		setContentType(contentType);
+
+//passing the body and we need to tell the content type its, json or html or xml, with headers
+	private RequestSpecification createRequestSpec(Object requestBody, String contentType,
+			Map<String, String> headersMap) {
+		specBuilder.setBaseUri(BASE_URI);
 		addAuthorizationHeader();
-		if(headersMap!=null) {
-			specbuilder.addHeaders(headersMap);
+		setRequestContentType(contentType);
+		if (headersMap != null) {
+			specBuilder.addHeaders(headersMap);
 		}
-		if(requestBody!=null) {
-			specbuilder.setBody(requestBody);
+		if (requestBody != null) {
+			specBuilder.setBody(requestBody);
 		}
-		return	specbuilder.build();		
+		return specBuilder.build();
 	}
-	
-	
-	
-	//Http Methods Utils:
-	public Response get(String serviceUrl) {	
-	return	RestAssured.given(createRequestSpecification())
-			.when()
-				.get(serviceUrl);	
-	}
-	
-	public Response get(String serviceUrl, Map<String, String> headersMap) {	
-		return	RestAssured.given(createRequestSpecification(headersMap))
-				.when()
-					.get(serviceUrl);	
+
+//Http Methods Utils:
+	public Response get(String serviceUrl, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec()).log().all()
+					.when()
+						.get(serviceUrl);
 		}
-	
-	public Response get(String serviceUrl, Map<String, String> headersMap, Map<String, String> queryParams) {	
-		return	RestAssured.given(createRequestSpecification(headersMap, queryParams))
-				.when()
-					.get(serviceUrl);	
+		return RestAssured.given(createRequestSpec()).when().get(serviceUrl);
+	}
+
+	public Response get(String serviceUrl, Map<String, String> headersMap, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(headersMap)).log().all().when().get(serviceUrl);
 		}
-	
-	public Response post(String serviceUrl, String contentType, Object requestBody) {
-		return	RestAssured.given(createRequestSpecification(requestBody, contentType))
-				.when()
-					.post(serviceUrl);		
+		return RestAssured.given(createRequestSpec(headersMap)).when().get(serviceUrl);
 	}
-	
-	public Response post(String serviceUrl, String contentType, Object requestBody,Map<String, String> headersMap) {
-		return	RestAssured.given(createRequestSpecification(headersMap, requestBody, contentType))
-				.when()
-					.post(serviceUrl);		
+
+	public Response get(String serviceUrl, Map<String, String> queryParams, Map<String, String> headersMap,
+			boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(headersMap, queryParams)).log().all().when().get(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(headersMap, queryParams)).when().get(serviceUrl);
 	}
-	
-	//put
-	public Response put(String serviceUrl, String contentType, Object requestBody) {
-		return	RestAssured.given(createRequestSpecification(requestBody, contentType))
-				.when()
-					.put(serviceUrl);		
+
+//post calls
+	public Response post(String serviceUrl, String contentType, Object requestBody, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType)).log().all().when().post(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType)).when().post(serviceUrl);
+
 	}
-	
-	public Response put(String serviceUrl, String contentType, Object requestBody,Map<String, String> headersMap) {
-		return	RestAssured.given(createRequestSpecification(headersMap, requestBody, contentType))
-				.when()
-					.put(serviceUrl);		
+
+	public Response post(String serviceUrl, String contentType, Object requestBody, Map<String, String> headersMap,
+			boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).log().all().when()
+					.post(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).when().post(serviceUrl);
+
 	}
-	
-	//patch
-	public Response patch(String serviceUrl, String contentType, Object requestBody) {
-		return	RestAssured.given(createRequestSpecification(requestBody, contentType))
-				.when()
-					.patch(serviceUrl);		
+
+	public Response put(String serviceUrl, String contentType, Object requestBody, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType)).log().all().when().put(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType)).when().post(serviceUrl);
+
 	}
-	
-	public Response patch(String serviceUrl, String contentType, Object requestBody,Map<String, String> headersMap) {
-		return	RestAssured.given(createRequestSpecification(headersMap, requestBody, contentType))
-				.when()
-					.patch(serviceUrl);		
+
+	public Response put(String serviceUrl, String contentType, Object requestBody, Map<String, String> headersMap,
+			boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).log().all().when()
+					.put(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).when().post(serviceUrl);
+
 	}
-	
-	//delete
-	public Response delete(String serviceUrl) {
-		
-		return	RestAssured.given(createRequestSpecification())
-				.when()
-					.delete(serviceUrl);		
+
+	public Response patch(String serviceUrl, String contentType, Object requestBody, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType)).log().all().when().patch(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType)).when().post(serviceUrl);
+	}
+
+	public Response patch(String serviceUrl, String contentType, Object requestBody, Map<String, String> headersMap,
+			boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).log().all().when()
+					.patch(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec(requestBody, contentType, headersMap)).when().post(serviceUrl);
+	}
+
+	public Response delete(String serviceUrl, boolean log) {
+		if (log) {
+			return RestAssured.given(createRequestSpec()).log().all().when().delete(serviceUrl);
+		}
+		return RestAssured.given(createRequestSpec()).when().delete(serviceUrl);
 	}
 }
