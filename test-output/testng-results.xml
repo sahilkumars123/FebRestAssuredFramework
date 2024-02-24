@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-23T19:19:18 IST" name="Default suite" finished-at="2024-02-23T19:19:25 IST" duration-ms="6349">
+  <suite started-at="2024-02-24T15:59:00 IST" name="API Regression Suite" finished-at="2024-02-24T15:59:05 IST" duration-ms="5198">
     <groups>
     </groups>
-    <test started-at="2024-02-23T19:19:18 IST" name="Default test" finished-at="2024-02-23T19:19:25 IST" duration-ms="6349">
-      <class name="tests.CreateUserTest">
-        <test-method signature="createUser()[pri:0, instance:tests.CreateUserTest@76f2bbc1]" started-at="2024-02-23T19:19:18 IST" name="createUser" finished-at="2024-02-23T19:19:25 IST" duration-ms="6287" status="PASS">
+    <test started-at="2024-02-24T15:59:00 IST" name="Go Rest API Test" finished-at="2024-02-24T15:59:04 IST" duration-ms="3929">
+      <class name="tests.GetUserTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:tests.GetUserTest@306cf3ea]" started-at="2024-02-24T15:59:00 IST" name="setup" finished-at="2024-02-24T15:59:01 IST" duration-ms="968" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://gorest.co.in]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createUser -->
-      </class> <!-- tests.CreateUserTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setup -->
+        <test-method signature="getAllUsers()[pri:0, instance:tests.GetUserTest@306cf3ea]" started-at="2024-02-24T15:59:01 IST" name="getAllUsers" finished-at="2024-02-24T15:59:04 IST" duration-ms="2901" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllUsers -->
+      </class> <!-- tests.GetUserTest -->
+    </test> <!-- Go Rest API Test -->
+    <test started-at="2024-02-24T15:59:04 IST" name="Circuit API Test" finished-at="2024-02-24T15:59:05 IST" duration-ms="1156">
+      <class name="tests.CircuitTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:tests.CircuitTest@3e6ef8ad]" started-at="2024-02-24T15:59:04 IST" name="setup" finished-at="2024-02-24T15:59:04 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://ergast.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="getAllUsers()[pri:0, instance:tests.CircuitTest@3e6ef8ad]" started-at="2024-02-24T15:59:04 IST" name="getAllUsers" finished-at="2024-02-24T15:59:05 IST" duration-ms="1150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllUsers -->
+      </class> <!-- tests.CircuitTest -->
+    </test> <!-- Circuit API Test -->
+  </suite> <!-- API Regression Suite -->
 </testng-results>

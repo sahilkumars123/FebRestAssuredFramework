@@ -1,6 +1,7 @@
 package client;
 
 import java.util.Map;
+import java.util.Properties;
 
 import frameworkexception.FrameworkException;
 import io.restassured.RestAssured;
@@ -10,18 +11,22 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class RestClient {
-	private static final String BASE_URI = "https://gorest.co.in";
-	private static final String BEARER_TOKEN = "53762d62478eb441d3c28098ca0e436747a19f9652dabc4fa32a3b2c7c85752d";
+//	private static final String BASE_URI = "https://gorest.co.in";
+//	private static final String BEARER_TOKEN = "53762d62478eb441d3c28098ca0e436747a19f9652dabc4fa32a3b2c7c85752d";
 
 	private static RequestSpecBuilder specBuilder;
+	Properties prop;
+	String baseURI;
 
-	public RestClient()
+	public RestClient(Properties prop, String baseURI)
 	{
 		specBuilder = new RequestSpecBuilder();
+		this.prop = prop;
+		this.baseURI = baseURI;
 	}
 
 	public void addAuthorizationHeader() {
-		specBuilder.addHeader("Authorization", "Bearer " + BEARER_TOKEN);
+		specBuilder.addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"));
 	}
 
 	private void setRequestContentType(String contentType) { // json , JSON, Json
@@ -45,13 +50,13 @@ public class RestClient {
 	}
 
 	private RequestSpecification createRequestSpec() {
-		specBuilder.setBaseUri(BASE_URI);
+		specBuilder.setBaseUri(baseURI);
 		addAuthorizationHeader();
 		return specBuilder.build();
 	}
 
 	private RequestSpecification createRequestSpec(Map<String, String> headersMap) {
-		specBuilder.setBaseUri(BASE_URI);
+		specBuilder.setBaseUri(baseURI);
 		addAuthorizationHeader();
 		if (headersMap != null) {
 			specBuilder.addHeaders(headersMap);
@@ -60,7 +65,7 @@ public class RestClient {
 	}
 
 	private RequestSpecification createRequestSpec(Map<String, String> headersMap, Map<String, String> queryParams) {
-		specBuilder.setBaseUri(BASE_URI);
+		specBuilder.setBaseUri(baseURI);
 		addAuthorizationHeader();
 		if (headersMap != null) {
 			specBuilder.addHeaders(headersMap);
@@ -74,7 +79,7 @@ public class RestClient {
 //request spec for post calls
 //passing the body and we need to tell the content type its, json or html or xml
 	private RequestSpecification createRequestSpec(Object requestBody, String contentType) {
-		specBuilder.setBaseUri(BASE_URI);
+		specBuilder.setBaseUri(baseURI);
 		addAuthorizationHeader();
 		setRequestContentType(contentType);
 		if (requestBody != null) {
@@ -86,7 +91,7 @@ public class RestClient {
 //passing the body and we need to tell the content type its, json or html or xml, with headers
 	private RequestSpecification createRequestSpec(Object requestBody, String contentType,
 			Map<String, String> headersMap) {
-		specBuilder.setBaseUri(BASE_URI);
+		specBuilder.setBaseUri(baseURI);
 		addAuthorizationHeader();
 		setRequestContentType(contentType);
 		if (headersMap != null) {
