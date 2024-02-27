@@ -5,10 +5,10 @@
 	parallel="tests" verbose="4">
 	
 	
-	<!-- <listeners>
+<listeners>
 		<listener
-			class-name="com.qa.gorest.listeners.ExtentReportListener" />
-	</listeners>  -->
+			class-name="listeners.ExtentReportListener" />
+	</listeners>
 	
 	<!-- <test name="Amadeus Flight API Test">
 		<parameter name="baseURI" value="https://test.api.amadeus.com" />
@@ -22,32 +22,33 @@
 	</test>
 	 -->
 	
-	 <test name="Go Rest API Test">
+  <test name="Go Rest API Test">
 		<parameter name="baseURI" value="https://gorest.co.in" />
 
 		<classes>
-			<class name="tests.GetUserTest" />			
+			<class name="tests.GetUserTest" />
+						
 		</classes>
-	</test>
+	</test> 
 	
-	  <test name="Circuit API Test">
+	<!--   <test name="Circuit API Test">
 		<parameter name="baseURI" value="http://ergast.com" />
 
 		<classes>
 			<class name="tests.CircuitTest" />
 		</classes>
-	</test> 
+	</test>  -->
 	
-	<!--   <test name="Go Rest API Create User Test">
+<!-- <test name="Go Rest API Create User Test">
 		<parameter name="baseURI" value="https://gorest.co.in" />
 
 		<classes>
-			<class name="com.qa.gorest.tests.CreateUserTest" />
+			<class name="tests.CreateUserTest" />
 			
 		</classes>
-	</test>
+	</test> -->
 	
-	<test name="Go Rest API Scehma Test">
+	<!--   <test name="Go Rest API Scehma Test">
 		<parameter name="baseURI" value="https://gorest.co.in" />
 
 		<classes>
