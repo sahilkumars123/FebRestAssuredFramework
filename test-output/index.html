@@ -102,17 +102,17 @@
                     <div class="method-list-content passed suite-API_Regression_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.GetUserTest" class="method navigator-link" hash-for-method="getAllUsers">getAllUsers</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.CreateUserTest" class="method navigator-link" hash-for-method="createUser(rithika, female, active)">createUser(rithika, female, active)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.GetUserTest" class="method navigator-link" hash-for-method="getSPecificUser_WithQueryParam">getSPecificUser_WithQueryParam</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.CreateUserTest" class="method navigator-link" hash-for-method="createUser(rahul, male, active)">createUser(rahul, male, active)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.GetUserTest" class="method navigator-link" hash-for-method="getSpecificUser">getSpecificUser</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-API_Regression_Suite" title="tests.CreateUserTest" class="method navigator-link" hash-for-method="createUser(rajat, male, active)">createUser(rajat, male, active)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-API_Regression_Suite -->
@@ -130,28 +130,31 @@
           <div class="suite-API_Regression_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">tests.GetUserTest</span>
+              <span class="class-name">tests.CreateUserTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getAllUsers">
-                  </a> <!-- getAllUsers -->
-                  <span class="method-name">getAllUsers</span>
+                  <a name="createUser(rithika, female, active)">
+                  </a> <!-- createUser(rithika, female, active) -->
+                  <span class="method-name">createUser</span>
+                  <span class="parameters">(rithika, female, active)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="getSPecificUser_WithQueryParam">
-                  </a> <!-- getSPecificUser_WithQueryParam -->
-                  <span class="method-name">getSPecificUser_WithQueryParam</span>
+                  <a name="createUser(rahul, male, active)">
+                  </a> <!-- createUser(rahul, male, active) -->
+                  <span class="method-name">createUser</span>
+                  <span class="parameters">(rahul, male, active)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="getSpecificUser">
-                  </a> <!-- getSpecificUser -->
-                  <span class="method-name">getSpecificUser</span>
+                  <a name="createUser(rajat, male, active)">
+                  </a> <!-- createUser(rajat, male, active) -->
+                  <span class="method-name">createUser</span>
+                  <span class="parameters">(rajat, male, active)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -169,12 +172,12 @@
   &lt;listeners&gt;
     &lt;listener class-name=&quot;listeners.ExtentReportListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;Go Rest API Test&quot; verbose=&quot;4&quot;&gt;
+  &lt;test thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;Go Rest API Create User Test&quot; verbose=&quot;4&quot;&gt;
     &lt;parameter name=&quot;baseURI&quot; value=&quot;https://gorest.co.in&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.GetUserTest&quot;/&gt;
+      &lt;class name=&quot;tests.CreateUserTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Go Rest API Test --&gt;
+  &lt;/test&gt; &lt;!-- Go Rest API Create User Test --&gt;
 &lt;/suite&gt; &lt;!-- API Regression Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -186,7 +189,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Go Rest API Test (1 class)</span>
+                <span class="test-name">Go Rest API Create User Test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -214,22 +217,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getSPecificUser_WithQueryParam')
-data.setCell(0, 2, 'tests.GetUserTest')
-data.setCell(0, 3, 3091);
+data.setCell(0, 1, 'createUser')
+data.setCell(0, 2, 'tests.CreateUserTest')
+data.setCell(0, 3, 5630);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'getSpecificUser')
-data.setCell(1, 2, 'tests.GetUserTest')
-data.setCell(1, 3, 2002);
+data.setCell(1, 1, 'createUser')
+data.setCell(1, 2, 'tests.CreateUserTest')
+data.setCell(1, 3, 2526);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'getAllUsers')
-data.setCell(2, 2, 'tests.GetUserTest')
-data.setCell(2, 3, 1137);
+data.setCell(2, 1, 'createUser')
+data.setCell(2, 2, 'tests.CreateUserTest')
+data.setCell(2, 3, 2355);
 window.suiteTableData['API_Regression_Suite']= { tableData: data, tableDiv: 'times-div-API_Regression_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
               <div id="times-div-API_Regression_Suite">
               </div> <!-- times-div-API_Regression_Suite -->
             </div> <!-- times-div -->
@@ -255,34 +258,34 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.GetUserTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.CreateUserTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setup(https://gorest.co.in)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">create</span>
-                <span class="method-start">698 ms</span>
+                <span class="method-name">createObject</span>
+                <span class="method-start">673 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">getSPecificUser_WithQueryParam</span>
-                <span class="method-start">935 ms</span>
+                <span class="method-name">createUser(rithika, female, active)</span>
+                <span class="method-start">913 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">create</span>
-                <span class="method-start">4052 ms</span>
+                <span class="method-name">createObject</span>
+                <span class="method-start">6586 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">getSpecificUser</span>
-                <span class="method-start">4055 ms</span>
+                <span class="method-name">createUser(rajat, male, active)</span>
+                <span class="method-start">6590 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
-                <span class="method-name">create</span>
-                <span class="method-start">6062 ms</span>
+                <span class="method-name">createObject</span>
+                <span class="method-start">9121 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">getAllUsers</span>
-                <span class="method-start">6065 ms</span>
+                <span class="method-name">createUser(rahul, male, active)</span>
+                <span class="method-start">9128 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

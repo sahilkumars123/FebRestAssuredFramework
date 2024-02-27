@@ -1,10 +1,12 @@
 package tests;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
 import client.RestClient;
+import constants.APIHttpStatus;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import pojo.User;
@@ -17,14 +19,23 @@ public class CreateUserTest extends BaseTest {
 	public void createObject() {
 		restClient = new RestClient(prop, baseURI);	
 	}
-
-	@Test
-	public void createUser() {
-		User user = new User("sahil",StringUtils.getRandomEmailId(), "male", "active");
+	
+	@DataProvider
+	public Object[][] getUserData() {
+		return new Object[][] {
+			{"rithika", "female", "active"},
+			{"rajat", "male", "active"},
+			{"rahul", "male", "active"}
+		};
+	}
+	
+	@Test(dataProvider = "getUserData")
+	public void createUser(String name, String gender, String status) {
+		User user = new User(name,StringUtils.getRandomEmailId(), gender, status);
 		
-	Integer userID =	restClient.post("/public/v2/users","json",user,true, true)
+	Integer userID =	restClient.post(GOREST_ENDPOINT,"json",user,true, true)
 			.then().log().all()
-				.statusCode(201)
+				.statusCode(APIHttpStatus.CREATED_201.getCode())
 					.extract()
 					 .path("id");
 	
@@ -32,9 +43,9 @@ public class CreateUserTest extends BaseTest {
 	
 	//get call
 	RestClient restClienGET = new RestClient(prop, baseURI);
-	restClienGET.get("/public/v2/users/"+userID, true, true)
+	restClienGET.get(GOREST_ENDPOINT+"/"+userID, true, true)
 		.then().log().all()
-			.statusCode(200)
+			.statusCode(APIHttpStatus.OK_200.getCode())
 				.and()
 					.body("id", equalTo(userID));
 						

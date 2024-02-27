@@ -9,6 +9,7 @@ import java.util.Map;
 
 import base.BaseTest;
 import client.RestClient;
+import constants.APIHttpStatus;
 
 public class GetUserTest extends BaseTest {
 
@@ -20,17 +21,17 @@ public class GetUserTest extends BaseTest {
 	@Test(priority =3)
 	public void getAllUsers() {
 		
-		restClient.get("/public/v2/users",true, true)
+		restClient.get(GOREST_ENDPOINT,true, true)
 			.then().log().all()
-				.statusCode(200);
+				.statusCode(APIHttpStatus.OK_200.getCode());
 	}
 	
 	@Test(priority = 2)
 	public void getSpecificUser() {
 		
-		restClient.get("/public/v2/users/6663407", true,true)
+		restClient.get(GOREST_ENDPOINT+"/6663407", true,true)
 			.then().log().all()
-				.statusCode(200)
+				.statusCode(APIHttpStatus.OK_200.getCode())
 					.and()
 						.body("id", equalTo(6663407));
 	}
@@ -42,9 +43,9 @@ public class GetUserTest extends BaseTest {
 		queryParams.put("name", "sahil");
 		queryParams.put("status", "active");
 		
-		restClient.get( "/public/v2/users",queryParams, null, true,true)
+		restClient.get( GOREST_ENDPOINT,queryParams, null, true,true)
 			.then().log().all()
-				.statusCode(200);
+				.statusCode(APIHttpStatus.OK_200.getCode());
 						
 	}
 	
