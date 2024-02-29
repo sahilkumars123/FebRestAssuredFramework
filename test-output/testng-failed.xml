@@ -4,16 +4,17 @@
   <listeners>
     <listener class-name="listeners.ExtentReportListener"/>
   </listeners>
-  <test thread-count="1" parallel="tests" name="Go Rest API Create User Test(failed)" verbose="4">
+  <test thread-count="1" parallel="tests" name="Go Rest API Test(failed)" verbose="4">
     <parameter name="baseURI" value="https://gorest.co.in"/>
     <classes>
-      <class name="tests.CreateUserTest">
+      <class name="tests.GetUserTest">
         <methods>
+          <include name="create"/>
           <include name="setup"/>
-          <include name="createUser"/>
-          <include name="createObject"/>
+          <include name="getSPecificUser_WithQueryParam"/>
+          <include name="getSpecificUser"/>
         </methods>
-      </class> <!-- tests.CreateUserTest -->
+      </class> <!-- tests.GetUserTest -->
     </classes>
-  </test> <!-- Go Rest API Create User Test(failed) -->
+  </test> <!-- Go Rest API Test(failed) -->
 </suite> <!-- Failed suite [API Regression Suite] -->

@@ -1,4 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.396 s - in TestSuite
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 6, Time elapsed: 4.184 s <<< FAILURE! - in TestSuite
+setup(tests.CreateUserTest)  Time elapsed: 2.46 s  <<< FAILURE!
+frameworkexception.FrameworkException: please pass the correct envname:: qa
+

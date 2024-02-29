@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="1" total="3" passed="0" failed="0" skipped="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-28T18:33:02 IST" name="API Regression Suite" finished-at="2024-02-28T18:33:15 IST" duration-ms="12899">
+  <suite started-at="2024-02-29T19:09:41 IST" name="API Regression Suite" finished-at="2024-02-29T19:09:43 IST" duration-ms="1290">
     <groups>
     </groups>
-    <test started-at="2024-02-28T18:33:02 IST" name="Go Rest API Create User Test" finished-at="2024-02-28T18:33:15 IST" duration-ms="12899">
-      <class name="tests.CreateUserTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:02 IST" name="setup" finished-at="2024-02-28T18:33:03 IST" duration-ms="747" status="PASS">
+    <test started-at="2024-02-29T19:09:41 IST" name="Go Rest API Test" finished-at="2024-02-29T19:09:43 IST" duration-ms="1290">
+      <class name="tests.GetUserTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:tests.GetUserTest@5b1f29fa]" started-at="2024-02-29T19:09:42 IST" name="setup" finished-at="2024-02-29T19:09:43 IST" duration-ms="814" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -15,85 +15,116 @@
               </value>
             </param>
           </params>
+          <exception class="frameworkexception.FrameworkException">
+            <message>
+              <![CDATA[please pass the correct envname:: null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[frameworkexception.FrameworkException: please pass the correct envname:: null
+at configuration.ConfigurationManager.initProp(ConfigurationManager.java:44)
+at base.BaseTest.setup(BaseTest.java:32)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:623)
+at org.testng.TestRunner.beforeRun(TestRunner.java:613)
+at org.testng.TestRunner.run(TestRunner.java:584)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:41)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:443)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:67)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+at java.base/java.lang.Thread.run(Thread.java:832)
+]]>
+            </full-stacktrace>
+          </exception> <!-- frameworkexception.FrameworkException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:04 IST" name="createObject" finished-at="2024-02-28T18:33:04 IST" duration-ms="171" status="PASS">
+        <test-method is-config="true" signature="create()[pri:0, instance:tests.GetUserTest@5b1f29fa]" started-at="2024-02-29T19:09:43 IST" name="create" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1709213983155" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createObject -->
-        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:04 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:33:10 IST" duration-ms="6061" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[rithika]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[female]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[active]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- create -->
+        <test-method signature="getSPecificUser_WithQueryParam()[pri:1, instance:tests.GetUserTest@5b1f29fa]" started-at="2024-02-29T19:09:43 IST" name="getSPecificUser_WithQueryParam" finished-at="2024-02-29T19:09:43 IST" duration-ms="0" status="SKIP">
+          <exception class="frameworkexception.FrameworkException">
+            <message>
+              <![CDATA[please pass the correct envname:: null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[frameworkexception.FrameworkException: please pass the correct envname:: null
+at configuration.ConfigurationManager.initProp(ConfigurationManager.java:44)
+at base.BaseTest.setup(BaseTest.java:32)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:623)
+at org.testng.TestRunner.beforeRun(TestRunner.java:613)
+at org.testng.TestRunner.run(TestRunner.java:584)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:41)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:443)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:67)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+at java.base/java.lang.Thread.run(Thread.java:832)
+]]>
+            </full-stacktrace>
+          </exception> <!-- frameworkexception.FrameworkException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createUser -->
-        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:10 IST" name="createObject" finished-at="2024-02-28T18:33:10 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- getSPecificUser_WithQueryParam -->
+        <test-method is-config="true" signature="create()[pri:0, instance:tests.GetUserTest@5b1f29fa]" started-at="2024-02-29T19:09:43 IST" name="create" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1709213983222" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createObject -->
-        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:10 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:33:13 IST" duration-ms="2492" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[sahil]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[male]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[active]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- create -->
+        <test-method signature="getSpecificUser()[pri:2, instance:tests.GetUserTest@5b1f29fa]" started-at="2024-02-29T19:09:43 IST" name="getSpecificUser" finished-at="2024-02-29T19:09:43 IST" duration-ms="0" status="SKIP">
+          <exception class="frameworkexception.FrameworkException">
+            <message>
+              <![CDATA[please pass the correct envname:: null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[frameworkexception.FrameworkException: please pass the correct envname:: null
+at configuration.ConfigurationManager.initProp(ConfigurationManager.java:44)
+at base.BaseTest.setup(BaseTest.java:32)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:623)
+at org.testng.TestRunner.beforeRun(TestRunner.java:613)
+at org.testng.TestRunner.run(TestRunner.java:584)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:41)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:443)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:67)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+at java.base/java.lang.Thread.run(Thread.java:832)
+]]>
+            </full-stacktrace>
+          </exception> <!-- frameworkexception.FrameworkException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createUser -->
-        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:13 IST" name="createObject" finished-at="2024-02-28T18:33:13 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createObject -->
-        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@55342f40]" started-at="2024-02-28T18:33:13 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:33:15 IST" duration-ms="2347" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[divya]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[female]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[inactive]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createUser -->
-      </class> <!-- tests.CreateUserTest -->
-    </test> <!-- Go Rest API Create User Test -->
+        </test-method> <!-- getSpecificUser -->
+      </class> <!-- tests.GetUserTest -->
+    </test> <!-- Go Rest API Test -->
   </suite> <!-- API Regression Suite -->
 </testng-results>
