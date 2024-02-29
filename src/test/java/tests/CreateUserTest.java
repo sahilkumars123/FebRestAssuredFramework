@@ -10,6 +10,7 @@ import constants.APIHttpStatus;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import pojo.User;
+import utils.ExcelUtil;
 import utils.StringUtils;
 import static org.hamcrest.Matchers.*;
 
@@ -20,13 +21,18 @@ public class CreateUserTest extends BaseTest {
 		restClient = new RestClient(prop, baseURI);	
 	}
 	
+//	@DataProvider
+//	public Object[][] getUserData() {
+//		return new Object[][] {
+//			{"rithika", "female", "active"},
+//			{"rajat", "male", "active"},
+//			{"rahul", "male", "active"}
+//		};
+//	}
+	
 	@DataProvider
 	public Object[][] getUserData() {
-		return new Object[][] {
-			{"rithika", "female", "active"},
-			{"rajat", "male", "active"},
-			{"rahul", "male", "active"}
-		};
+		return ExcelUtil.getTestData("user");
 	}
 	
 	@Test(dataProvider = "getUserData")

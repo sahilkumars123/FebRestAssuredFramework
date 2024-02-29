@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-28T18:41:48 IST" name="API Regression Suite" finished-at="2024-02-28T18:42:00 IST" duration-ms="12616">
+    <groups>
+    </groups>
+    <test started-at="2024-02-28T18:41:48 IST" name="Go Rest API Create User Test" finished-at="2024-02-28T18:42:00 IST" duration-ms="12616">
+      <class name="tests.CreateUserTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:48 IST" name="setup" finished-at="2024-02-28T18:41:48 IST" duration-ms="679" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://gorest.co.in]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:49 IST" name="createObject" finished-at="2024-02-28T18:41:49 IST" duration-ms="137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createObject -->
+        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:49 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:41:56 IST" duration-ms="6280" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rithika]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[female]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUser -->
+        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:56 IST" name="createObject" finished-at="2024-02-28T18:41:56 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createObject -->
+        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:56 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:41:58 IST" duration-ms="1834" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[sahil]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[male]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[active]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUser -->
+        <test-method is-config="true" signature="createObject()[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:58 IST" name="createObject" finished-at="2024-02-28T18:41:58 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createObject -->
+        <test-method signature="createUser(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:tests.CreateUserTest@282cb7c7]" started-at="2024-02-28T18:41:58 IST" name="createUser" data-provider="getUserData" finished-at="2024-02-28T18:42:00 IST" duration-ms="2716" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[divya]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[female]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[inactive]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUser -->
+      </class> <!-- tests.CreateUserTest -->
+    </test> <!-- Go Rest API Create User Test -->
+  </suite> <!-- API Regression Suite -->
+</testng-results>

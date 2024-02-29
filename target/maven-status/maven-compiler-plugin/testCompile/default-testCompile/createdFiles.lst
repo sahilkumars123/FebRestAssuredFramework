@@ -1,0 +1,6 @@
+base\BaseTest.class
+tests\CircuitTest.class
+tests\UpdateUserTest.class
+tests\CreateUserTest.class
+tests\GetUserTest.class
+tests\DeleteUserTest.class
