@@ -19,6 +19,8 @@ public class GetUserTest extends BaseTest {
 	@BeforeMethod
 	public void create() {
 		restClient = new RestClient(prop, baseURI);
+		
+		
 	}
 	
 	@Test(priority =3, enabled = false)
