@@ -1,17 +1,20 @@
 package tests;
 
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import base.BaseTest;
 import client.RestClient;
 import constants.APIHttpStatus;
 
 public class GetUserTest extends BaseTest {
+	
+	
 
 	@BeforeMethod
 	public void create() {
