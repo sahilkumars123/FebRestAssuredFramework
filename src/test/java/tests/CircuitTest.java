@@ -16,7 +16,6 @@ public class CircuitTest extends BaseTest {
 	@BeforeMethod
 	public void createObject() {
 		restClient = new RestClient(prop, baseURI);
-		
 	}
 	
 	@Test
